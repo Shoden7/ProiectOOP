@@ -1,7 +1,7 @@
-# Titlu to be determined
+# Tiny Tumbler
 
 ## Descriere proiect
-Joc Platformer 2D (Foddian game) cu o mecanica simpla si greu de jucat.
+Joc Platformer 2D in care tu ești un pitic care trebuie sa ajunga in varful turnului.
 
 ## Milestone #0
 
