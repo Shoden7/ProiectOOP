@@ -45,6 +45,8 @@ include(cmake/Options.cmake)
 add_executable(${PROJECT_NAME}
     main.cpp
     generated/src/Helper.cpp
+        Objects/Player.h
+        Objects/Envroinment.h
 )
 
 include(cmake/CompilerFlags.cmake)
