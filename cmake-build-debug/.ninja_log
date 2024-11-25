@@ -1,0 +1,5 @@
+# ninja log v6
+17	112	7524440946439157	CMakeFiles/oop.dir/generated/src/Helper.cpp.obj	d31e97dba07f0f5
+5	655	7524496653656188	CMakeFiles/oop.dir/main.cpp.obj	d83962084759c39d
+656	879	7524496660156862	oop.exe	1b5ec75a37a0fa2
+4	391	7524570314514284	build.ninja	d27f788764c6725a
