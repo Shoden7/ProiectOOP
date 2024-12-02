@@ -49,19 +49,19 @@ cmake_ninja_workdir = C$:/Users/Stefan/Desktop/tiny-tumbler/cmake-build-debug/
 
 build cmake_object_order_depends_target_oop: phony || .
 
-build CMakeFiles/oop.dir/main.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:/Users/Stefan/Desktop/tiny-tumbler/main.cpp || cmake_object_order_depends_target_oop
-  DEP_FILE = CMakeFiles\oop.dir\main.cpp.obj.d
+build CMakeFiles/oop.dir/cpp/main.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:/Users/Stefan/Desktop/tiny-tumbler/cpp/main.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\cpp\main.cpp.obj.d
   FLAGS = -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/Stefan/Desktop/tiny-tumbler/generated/include
+  INCLUDES = -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/classes -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/core -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/templates -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/variant -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp -isystem C:/Users/Stefan/Desktop/tiny-tumbler/cpp/include
   OBJECT_DIR = CMakeFiles\oop.dir
-  OBJECT_FILE_DIR = CMakeFiles\oop.dir
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\cpp
 
-build CMakeFiles/oop.dir/generated/src/Helper.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:/Users/Stefan/Desktop/tiny-tumbler/generated/src/Helper.cpp || cmake_object_order_depends_target_oop
-  DEP_FILE = CMakeFiles\oop.dir\generated\src\Helper.cpp.obj.d
+build CMakeFiles/oop.dir/cpp/src/Helper.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:/Users/Stefan/Desktop/tiny-tumbler/cpp/src/Helper.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\cpp\src\Helper.cpp.obj.d
   FLAGS = -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/Stefan/Desktop/tiny-tumbler/generated/include
+  INCLUDES = -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/classes -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/core -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/templates -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp/variant -IC:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/include/godot_cpp -isystem C:/Users/Stefan/Desktop/tiny-tumbler/cpp/include
   OBJECT_DIR = CMakeFiles\oop.dir
-  OBJECT_FILE_DIR = CMakeFiles\oop.dir\generated\src
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\cpp\src
 
 
 # =============================================================================
@@ -71,11 +71,11 @@ build CMakeFiles/oop.dir/generated/src/Helper.cpp.obj: CXX_COMPILER__oop_unscann
 #############################################
 # Link the executable oop.exe
 
-build oop.exe: CXX_EXECUTABLE_LINKER__oop_Debug CMakeFiles/oop.dir/main.cpp.obj CMakeFiles/oop.dir/generated/src/Helper.cpp.obj
+build oop.exe: CXX_EXECUTABLE_LINKER__oop_Debug CMakeFiles/oop.dir/cpp/main.cpp.obj CMakeFiles/oop.dir/cpp/src/Helper.cpp.obj | C$:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/bin/GodotLibrariesInCpp.lib
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = C:/Users/Stefan/Desktop/tiny-tumbler/godot-cpp/bin/GodotLibrariesInCpp.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\oop.dir
-  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Stefan\Desktop\tiny-tumbler\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe" -E copy_if_different C:/Users/Stefan/Desktop/tiny-tumbler/tastatura.txt C:/Users/Stefan/Desktop/tiny-tumbler/cmake-build-debug"
+  POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = oop.exe
   TARGET_IMPLIB = liboop.dll.a

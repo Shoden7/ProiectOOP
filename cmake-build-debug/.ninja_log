@@ -1,5 +1,5 @@
 # ninja log v6
-17	112	7524440946439157	CMakeFiles/oop.dir/generated/src/Helper.cpp.obj	d31e97dba07f0f5
-5	655	7524496653656188	CMakeFiles/oop.dir/main.cpp.obj	d83962084759c39d
-656	879	7524496660156862	oop.exe	1b5ec75a37a0fa2
-4	391	7548609336358433	build.ninja	d27f788764c6725a
+2	615	7548639235494360	CMakeFiles/oop.dir/cpp/main.cpp.obj	ff5da6c5807f3140
+616	817	7548639241624001	oop.exe	a9d8fd8173083b0e
+2	316	7548707132080041	build.ninja	493cf8d965de0d56
+19	116	7548625396201847	CMakeFiles/oop.dir/cpp/src/Helper.cpp.obj	1f8c3b45d8bcbb0

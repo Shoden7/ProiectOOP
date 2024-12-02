@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <Helper.h>
+#include "include/Helper.h"
 
 #include "Objects/Player.h"
 #include "Objects/Envroinment.h"
@@ -23,9 +23,6 @@ int main() {
         if (i < player.getSpeed().size() - 1) std::cout << ", ";
     }
     std::cout << ")" << std::endl;
-
-    /// Afiseaza gravity
-    std::cout << "Player gravity: " << player.getGravity() << std::endl;
 
     Helper helper;
     helper.help();
