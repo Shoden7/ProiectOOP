@@ -15,6 +15,8 @@ include(cmake/Options.cmake)
 add_executable(${PROJECT_NAME}
         cpp/main.cpp
         cpp/src/Helper.cpp
+        cpp/Objects/Walls.h
+        cpp/Objects/Ice.h
 )
 
 # Add include directories for your project
