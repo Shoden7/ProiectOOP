@@ -43,10 +43,10 @@ include(cmake/Options.cmake)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${PROJECT_NAME}
-    main.cpp
-    generated/src/Helper.cpp
-        Objects/Player.h
-        Objects/Envroinment.h
+        main.cpp
+        generated/src/Helper.cpp
+        addons/Objects/Player.h
+        addons/Objects/Envroinment.h
 )
 
 include(cmake/CompilerFlags.cmake)
@@ -65,9 +65,9 @@ target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE generated/include)
 # copy binaries to "bin" folder; these are uploaded as artifacts on each release
 # DESTINATION_DIR is set as "bin" in cmake/Options.cmake:6
 install(TARGETS ${PROJECT_NAME} DESTINATION ${DESTINATION_DIR})
-if(APPLE)
+if (APPLE)
     install(FILES launcher.command DESTINATION ${DESTINATION_DIR})
-endif()
+endif ()
 
 include(cmake/CopyHelper.cmake)
 copy_files(FILES tastatura.txt)
