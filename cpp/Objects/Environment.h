@@ -5,8 +5,8 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
-#include "../../godot/godot-cpp/include/godot_cpp/core/class_db.hpp"
-#include "../../godot/godot-cpp/gen/include/godot_cpp/variant/utility_functions.hpp"
+#include <godot_cpp/core/class_db.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
 #include <iostream>
 
 using namespace godot;
@@ -18,7 +18,7 @@ using namespace godot;
  * This class manages collision states and interacts with Godot's systems for environmental features.
  */
 class Environment : public Object {
-    GDCLASS(Environment, Object) // Godot class registration
+    GDCLASS(Environment, Object); // Godot class registration
 
 private:
     /**
