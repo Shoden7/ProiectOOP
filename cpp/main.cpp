@@ -3,7 +3,7 @@
 #include "include/Helper.h"
 
 #include "Objects/Player.h"
-#include "Objects/Envroinment.h"
+#include "Objects/Environment.h"
 
 int main() {
     Player const player;
