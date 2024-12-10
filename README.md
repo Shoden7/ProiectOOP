@@ -1,7 +1,7 @@
 # Tiny Tumbler
 
 ## Descriere proiect
-Joc Platformer 2D in care tu ești un pitic care trebuie sa ajunga in varful turnului.
+Joc Platformer 2D in care tu ești un pitic care trebuie sa ajunga in varful turnului. Jocul va fi implementat in godot
 
 ## Milestone #0
 
@@ -56,8 +56,12 @@ Joc Platformer 2D in care tu ești un pitic care trebuie sa ajunga in varful tur
 #### Cerințe
 - [ ] 2 șabloane de proiectare (design patterns)
 - [ ] o clasă șablon cu sens; minim **2 instanțieri**
-  - [ ] preferabil și o funcție șablon (template) cu sens; minim 2 instanțieri
+- [ ] preferabil și o funcție șablon (template) cu sens; minim 2 instanțieri
 - [ ] tag de `git`: de exemplu `v0.3` sau `v1.0`
 
 ## Resurse
 - adăugați trimiteri către resursele externe care v-au ajutat sau pe care le-ați folosit
+
+
+- https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_cpp_example.html
+- https://github.com/godotengine/godot-cpp
