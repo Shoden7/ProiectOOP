@@ -16,7 +16,7 @@
  * The Ice class modifies the player's speed when colliding with it, simulating slippery conditions.
  */
 class Ice : public Environment {
-    GDCLASS(Ice, Environment); // Godot class registration
+    GDCLASS(Ice, Environment) // Godot class registration
 
 private:
     /**

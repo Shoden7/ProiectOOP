@@ -18,7 +18,7 @@ using namespace godot;
  * This class manages collision states and interacts with Godot's systems for environmental features.
  */
 class Environment : public Object {
-    GDCLASS(Environment, Object); // Godot class registration
+    GDCLASS(Environment, Object) // Godot class registration
 
 private:
     /**

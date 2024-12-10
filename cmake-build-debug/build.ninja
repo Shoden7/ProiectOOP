@@ -56,6 +56,13 @@ build CMakeFiles/oop.dir/cpp/main.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\cpp
 
+build CMakeFiles/oop.dir/cpp/Objects/Player.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:/Users/Stefan/Desktop/tiny-tumbler/cpp/Objects/Player.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\cpp\Objects\Player.cpp.obj.d
+  FLAGS = -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -g
+  INCLUDES = -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/gen/include -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/include -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/include/godot_cpp -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/include/godot_cpp/classes -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/include/godot_cpp/core -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/include/godot_cpp/templates -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/include/godot_cpp/variant -IC:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/gdextension -isystem C:/Users/Stefan/Desktop/tiny-tumbler/cpp/include
+  OBJECT_DIR = CMakeFiles\oop.dir
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\cpp\Objects
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target oop
@@ -64,7 +71,7 @@ build CMakeFiles/oop.dir/cpp/main.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:
 #############################################
 # Link the executable oop.dll
 
-build oop.dll: CXX_EXECUTABLE_LINKER__oop_Debug CMakeFiles/oop.dir/cpp/main.cpp.obj | C$:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/bin/libgodot-cpp.windows.template_debug.x86_64.lib
+build oop.dll: CXX_EXECUTABLE_LINKER__oop_Debug CMakeFiles/oop.dir/cpp/main.cpp.obj CMakeFiles/oop.dir/cpp/Objects/Player.cpp.obj | C$:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/bin/libgodot-cpp.windows.template_debug.x86_64.lib
   FLAGS = -g
   LINK_LIBRARIES = C:/Users/Stefan/Desktop/tiny-tumbler/godot/godot-cpp/bin/libgodot-cpp.windows.template_debug.x86_64.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\oop.dir
