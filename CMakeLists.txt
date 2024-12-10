@@ -21,7 +21,8 @@ add_executable(${PROJECT_NAME}
         cpp/Objects/Ice.h
         cpp/Objects/Walls.h
         cpp/Objects/Environment.h
-        cpp/main.cpp # Add main or other source files
+        cpp/main.cpp
+        cpp/Objects/Player.cpp # Add main or other source files
 )
 
 # Add include directories for your project
