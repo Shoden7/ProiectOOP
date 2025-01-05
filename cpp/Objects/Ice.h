@@ -1,13 +1,8 @@
 
-//
-// Created by Stefan on 11/4/2024.
-//
-
 #ifndef ICE_H
 #define ICE_H
 
-#include "Environment.h"
-#include <iostream>
+#include <Environment.h>
 
 /**
  * @class Ice

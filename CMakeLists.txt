@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Define paths for the Godot C++ bindings
+set(CPP_DIR "${CMAKE_SOURCE_DIR}/cpp")
 set(GODOT_CPP_DIR "${CMAKE_SOURCE_DIR}/godot/godot-cpp")
 set(GODOT_CPP_GEN_INCLUDE "${GODOT_CPP_DIR}/gen/include")
 set(GODOT_CPP_INCLUDE "${GODOT_CPP_DIR}/include")
@@ -21,12 +22,29 @@ add_executable(${PROJECT_NAME}
         cpp/Objects/Ice.h
         cpp/Objects/Walls.h
         cpp/Objects/Environment.h
+        cpp/Objects/Sand.h
+
+        cpp/src/Player.cpp
+        cpp/src/Sand.cpp
+        cpp/src/Environment.cpp
         cpp/main.cpp
-        cpp/Objects/Player.cpp # Add main or other source files
+
+        cpp/Exceptions/NegativeSpeedException.h
+
+        godot/src/gdexample.h
+        godot/src/gdexample.cpp
+        godot/src/register_types.cpp
+        godot/src/register_types.h
+
+
 )
 
 # Add include directories for your project
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE
+        ${CPP_DIR}/include
+        ${CPP_DIR}/Exceptions
+        ${CPP_DIR}/Objects
+        ${CPP_DIR}/src
         cpp/include
 )
 

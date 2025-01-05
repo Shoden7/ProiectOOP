@@ -1,14 +1,8 @@
-//
-// Created by Stefan on 11/4/2024.
-//
 
 #ifndef WALLS_H
 #define WALLS_H
 
-#include "Environment.h"
-#include <array>
-#include <iostream>
-
+#include <Environment.h>
 /**
  * @class Walls
  * @brief Represents a collection of environmental elements forming walls.
