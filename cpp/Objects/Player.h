@@ -1,12 +1,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-// Include necessary Godot headers
-#include <godot_cpp/classes/character_body2d.hpp> // For CharacterBody2D class
-#include <godot_cpp/classes/input.hpp>           // For Input handling
-#include <godot_cpp/variant/vector2.hpp>         // For Vector2 class
-#include <godot_cpp/variant/string_name.hpp>     // For StringName class
-#include <godot_cpp/core/class_db.hpp>           // For GDCLASS macro
+#include <godot_cpp/classes/character_body2d.hpp>
+#include <godot_cpp/classes/input.hpp>
+#include <godot_cpp/variant/vector2.hpp>
+#include <godot_cpp/variant/string_name.hpp>
+#include <godot_cpp/core/class_db.hpp>
+#include "PlayerState.h"
 
 using namespace godot;
 
@@ -14,102 +14,58 @@ using namespace godot;
  * @class Player
  * @brief Represents the player character in the game, inheriting from CharacterBody2D.
  *
- * This class handles player movement, input processing, and physics behavior
- * such as gravity, jumping, and collision detection using Godot's physics system.
+ * This class handles player movement, state transitions, and interactions with the environment.
  */
 class Player : public CharacterBody2D {
  GDCLASS(Player, CharacterBody2D)
 
 private:
- /**
-  * @brief The current movement direction of the player.
-  *
-  * A 2D vector representing the player's movement in the X and Y axes.
-  */
- Vector2 movementDirection;
-
- /**
-  * @brief The player's movement speed.
-  *
-  * A 2D vector representing the player's speed in the X and Y directions.
-  */
- Vector2 movementSpeed;
-
- /**
-  * @brief The gravitational force acting on the player.
-  *
-  * This constant determines how strongly gravity affects the player's vertical movement.
-  */
- const float gravityForce;
-
- /**
-  * @brief Indicates whether the player can jump.
-  *
-  * This flag is true when the player is grounded and false otherwise.
-  */
- bool canJump;
-
- /**
-  * @brief The velocity of the player used for movement and physics.
-  *
-  * This vector holds the player's velocity, used in calculations for movement and jumping.
-  */
+ bool InAir;
+ Ref<PlayerState> current_state;
  Vector2 velocity;
+ const float gravityForce = 900.0f;
+ bool canJump = true;
 
 public:
  /**
-  * @brief Default constructor for the Player class.
-  *
-  * Initializes the player's movement direction, speed, gravity, and jump status.
-  */
- Player();
-
- /**
-  * @brief Copy constructor for the Player class.
-  *
-  * Creates a new Player instance by copying the data from another Player instance.
-  *
-  * @param other The Player instance to copy from.
-  */
- Player(const Player &other);
-
- /**
-  * @brief Stream insertion operator for the Player class.
-  *
-  * Outputs the Player's state (movement direction, speed, gravity, and jump ability)
-  * to the given output stream.
-  *
-  * @param os The output stream.
-  * @param player The Player instance to output.
-  * @return A reference to the updated output stream.
-  */
- friend std::ostream &operator<<(std::ostream &os, const Player &player);
-
- /**
   * @brief Called when the node is added to the scene tree.
-  *
-  * This method resets the player's movement direction and performs any necessary setup
-  * when the Player node becomes active in the scene.
   */
  void _ready();
 
  /**
-  * @brief Called every physics frame to process player movement and physics.
+  * @brief Called every physics frame to process player movement and state logic.
   *
-  * This method applies gravity, processes input for movement and jumping, and updates
-  * the player's position using the Godot physics system.
-  *
-  * @param delta The time elapsed since the last physics frame.
+  * @param delta Time elapsed since the last physics frame.
   */
  void _physics_process(float delta);
 
  /**
-  * @brief Binds methods to Godot for use in the editor or scripts.
+  * @brief Sets the player's state to a new state.
   *
-  * This static method is called to register custom methods with the Godot engine,
-  * making them available to scripts and the Godot editor.
+  * This method handles exiting the current state, transitioning to the new state,
+  * and calling the appropriate state methods.
+  *
+  * @param new_state Pointer to the new state.
+  */
+ void set_state(PlayerState *new_state);
+
+ /**
+  * @brief Binds methods to Godot for use in the editor or scripts.
   */
  static void _bind_methods();
+
+public:
+ /**
+  * @brief Gets the player's velocity.
+  * @return The current velocity of the player.
+  */
+ Vector2 get_velocity() const override { return velocity; }
+
+ /**
+  * @brief Sets the player's velocity.
+  * @param new_velocity The new velocity to assign.
+  */
+ void set_velocity(const Vector2 &new_velocity) override { velocity = new_velocity; }
 };
 
 #endif // PLAYER_H

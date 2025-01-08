@@ -10,11 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Tiny Tumbler"
+config/name="Try3please"
+run/main_scene="res://example_class.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true

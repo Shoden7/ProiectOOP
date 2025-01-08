@@ -10,11 +10,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Define paths for the Godot C++ bindings
 set(CPP_DIR "${CMAKE_SOURCE_DIR}/cpp")
-set(GODOT_CPP_DIR "${CMAKE_SOURCE_DIR}/godot/godot-cpp")
+set(GODOT_CPP_DIR "${CMAKE_SOURCE_DIR}/gdextension/godot-cpp")
 set(GODOT_CPP_GEN_INCLUDE "${GODOT_CPP_DIR}/gen/include")
 set(GODOT_CPP_INCLUDE "${GODOT_CPP_DIR}/include")
 set(GODOT_CPP_BIN "${GODOT_CPP_DIR}/bin")
-set(GDEXTENSION_INCLUDE "${CMAKE_SOURCE_DIR}/godot/godot-cpp/gdextension")
+set(GDEXTENSION_INCLUDE "${CMAKE_SOURCE_DIR}/gdextension/godot-cpp/gdextension")
 
 # Add the executable and source files
 add_executable(${PROJECT_NAME}
@@ -31,10 +31,35 @@ add_executable(${PROJECT_NAME}
 
         cpp/Exceptions/NegativeSpeedException.h
 
-        godot/src/gdexample.h
-        godot/src/gdexample.cpp
-        godot/src/register_types.cpp
-        godot/src/register_types.h
+        gdextension/src/gdexample.h
+        gdextension/src/gdexample.cpp
+        gdextension/src/register_types.cpp
+        gdextension/src/register_types.h
+
+        cpp/src/Walls.cpp
+        cpp/src/Ice.cpp
+        cpp/Objects/Templates/MenuButton.h
+        cpp/src/Level1.cpp
+        cpp/Objects/Level1.h
+        cpp/DesignPatterns/EnvironmentAdapter.h
+        cpp/Objects/WallsAdapter.h
+        cpp/Objects/IceAdapter.h
+        cpp/Objects/SandAdapter.h
+        cpp/Objects/Templates/MenuManager.h
+        cpp/Objects/SettingsScene.h
+        cpp/include/Helper.h
+        cpp/DesignPatterns/PlayerState.h
+        cpp/Exceptions/OutOfBoundsException.h
+        cpp/src/PlayerState.cpp
+        cpp/Objects/IdleState.h
+        cpp/src/IdleState.cpp
+        cpp/Objects/MovingState.h
+        cpp/src/MovingState.cpp
+        cpp/Objects/InAirState.h
+        cpp/Objects/DyingState.h
+        cpp/src/InAirState.cpp
+        cpp/src/DyingState.cpp
+        cpp/Exceptions/HighSpeedException.h
 
 
 )
@@ -44,7 +69,10 @@ target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE
         ${CPP_DIR}/include
         ${CPP_DIR}/Exceptions
         ${CPP_DIR}/Objects
+        ${CPP_DIR}/Objects/Templates
         ${CPP_DIR}/src
+        ${CPP_DIR}
+        ${CPP_DIR}/DesignPatterns
         cpp/include
 )
 

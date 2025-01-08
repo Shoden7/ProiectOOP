@@ -5,7 +5,6 @@
 #ifndef NEGATIVESPEEDEXCEPTION_H
 #define NEGATIVESPEEDEXCEPTION_H
 
-#include <string>
 #include <godot_cpp/variant/string.hpp>
 
 using namespace godot;

@@ -3,11 +3,22 @@
 #include <NegativeSpeedException.h>
 
 namespace godot {
-    // Sand Default Constructor
+    /**
+     * @brief Default constructor for the Sand class.
+     *
+     * Initializes the slow and jump factors to default values.
+     */
     Sand::Sand() : slowFactor(0.5f), jumpFactor(0.7f) {
     }
 
-    // Sand Parameterized Constructor
+    /**
+     * @brief Parameterized constructor for the Sand class.
+     *
+     * Initializes the slow and jump factors with custom values.
+     * Throws a NegativeSpeedException if any factor is non-positive.
+     * @param slow_factor The slow factor for horizontal movement.
+     * @param jump_factor The jump factor for vertical movement.
+     */
     Sand::Sand(float slow_factor, float jump_factor)
         : slowFactor(slow_factor), jumpFactor(jump_factor) {
         if (slowFactor <= 0 || jumpFactor <= 0) {
@@ -15,38 +26,45 @@ namespace godot {
         }
     }
 
-    // Apply effects to the Player (without using getter/setter)
+    /**
+     * @brief Applies sand effects to the player.
+     *
+     * Slows horizontal movement and reduces jump velocity when interacting with sand.
+     * @param player The player instance to affect.
+     * @param delta The frame's delta time.
+     */
     void Sand::apply_effects(Player &player, float delta) const {
-        try {
-            Vector2 velocity = player.get_velocity(); // Directly access velocity from Player
+        Vector2 velocity = player.get_velocity();
+        velocity.x *= slowFactor;
 
-            // Slow horizontal movement
-            velocity.x *= slowFactor;
-
-            // Reduce jump velocity
-            if (player.is_on_floor() && velocity.y < 0) {
-                // Only reduce upward (jump) velocity
-                velocity.y *= jumpFactor;
-            }
-
-            // Check for invalid velocities
-            if (velocity.x < 0 || velocity.y < 0) {
-                throw NegativeSpeedException("Player's velocity cannot be negative in sand.");
-            }
-
-            // Update the player velocity by calling move_and_slide() with modified velocity
-            player.move_and_slide(); // Apply new velocity directly to the movement
-        } catch (const NegativeSpeedException &e) {
-            // Log the exception
-            std::cerr << "Sand Error: " << e.what() << std::endl;
-
-            // Rethrow the exception for higher-level handling if necessary
-            throw;
+        if (player.is_on_floor() && velocity.y < 0) {
+            velocity.y *= jumpFactor;
         }
+
+        player.set_velocity(velocity);
+        player.move_and_slide();
     }
 
-    // Bind methods to Godot
+    /**
+     * @brief Clones the sand environment.
+     * @return A dynamically allocated copy of the Sand instance.
+     */
+    Sand *Sand::clone() const {
+        return new Sand(*this);
+    }
+
+    /**
+     * @brief Displays the slow and jump factors of the sand environment.
+     */
+    void Sand::display() const {
+        std::cout << "Sand: Slow Factor = " << slowFactor << ", Jump Factor = " << jumpFactor << std::endl;
+    }
+
+    /**
+     * @brief Binds methods for use in the Godot editor and scripting.
+     */
     void Sand::_bind_methods() {
-        ClassDB::bind_method(D_METHOD("apply_effects", "player", "delta"), &Sand::apply_effects);
+        ADD_SIGNAL(MethodInfo("error_occurred", PropertyInfo(Variant::STRING, "message")));
+        ClassDB::bind_method(D_METHOD("apply_effects", "player:Player", "delta"), &Sand::apply_effects);
     }
 } // namespace godot
